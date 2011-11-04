@@ -28,8 +28,10 @@ target.path += $$GTK3_IM_MODULEDIR
 INSTALLS += target
 
 !disable-gtk-cache-update {
-  update-im-cache.path = $$GTK3_DIR/
-  update-im-cache.extra = gtk-query-immodules-3.0 >$$GTK3_DIR/immodules.cache
+  system(test `lsb_release -s -i` = \"Ubuntu\") {
+    update-im-cache.path = $$GTK3_DIR/
+    update-im-cache.extra = gtk-query-immodules-3.0 >$$GTK3_DIR/immodules.cache
 
-  INSTALLS += update-im-cache
+    INSTALLS += update-im-cache
+  }
 }
