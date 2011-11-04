@@ -14,6 +14,7 @@ include(./config.pri)
         \\n\\t nodoc : Do not build documentation \
         \\n\\t only-libmaliit : Only build libmaliit \
         \\n\\t external-libmaliit : Use external libmaliit (do not build libmaliit) \
+        \\n\\t disable-gtk-cache-update : Do not update GTK2/3 input method caches \
         \\nInfluential environment variables: \
         \\n\\t GCONF_CONFIG_SOURCE : Specify custom gconf source2 \
         \\nExamples: \
@@ -44,6 +45,7 @@ external-libmaliit {
 
 !only-libmaliit {
     SUBDIRS += common input-context gtk-input-context input-method-quick examples
+    gtk-input-context.CONFIG = CONFIG
 
     !nodoc {
         SUBDIRS += doc
