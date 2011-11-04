@@ -45,7 +45,6 @@ external-libmaliit {
 
 !only-libmaliit {
     SUBDIRS += common input-context gtk-input-context input-method-quick examples
-    gtk-input-context.CONFIG = CONFIG
 
     !nodoc {
         SUBDIRS += doc
