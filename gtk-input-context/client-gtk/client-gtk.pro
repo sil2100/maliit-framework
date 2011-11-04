@@ -28,7 +28,8 @@ target.path += $$GTK2_IM_MODULEDIR
 INSTALLS += target
 
 !disable-gtk-cache-update {
-  system(test `lsb_release -s -i` = \"Ubuntu\") {
+  DISTRO = $$system(lsb_release -s -i)
+  isEqual(DISTRO, Ubuntu) {
     update-im-cache.path = $$GTK2_DIR/
     update-im-cache.extra = gtk-query-immodules-2.0 >$$GTK2_DIR/gtk.immodules
 
